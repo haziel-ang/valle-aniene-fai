@@ -144,7 +144,7 @@ a { color:inherit; text-decoration:none; }
   display: none;
 }
 .nav-logo-text .title {
-  font-size: var(--text-base);
+  font-size: var(--text-lg);
   font-family: var(--font-display);
   font-weight: 500;
   color: var(--text-primary);
@@ -301,7 +301,7 @@ a { color:inherit; text-decoration:none; }
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: var(--sp-3) var(--sp-6);
+  padding: var(--sp-4) var(--sp-10);
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -1070,11 +1070,12 @@ a { color:inherit; text-decoration:none; }
   font-weight: 600;
   background: var(--fai-orange);
   color: #fff;
-  border-radius: var(--r-md);
+  border-radius: 25px;
   box-shadow: 0 4px 16px rgba(200,71,26,0.35);
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   white-space: nowrap;
   flex-shrink: 0;
+  margin: 0 auto;
 }
 .btn-pdf:hover {
   background: var(--fai-orange-d);
