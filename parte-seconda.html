@@ -507,6 +507,12 @@
       </p>
     </div>
     <div class="footer-bottom">
+    <div class="footer-visit-counter">
+      <span class="footer-visit-icon" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      Visite totali: <span id="counter-value">…</span>
+    </div>
       <p class="footer-copyright">© 2026 FAI Delegazione Roma.</p>
       <p class="footer-license">Contenuto CC BY 4.0 · <a href="https://creativecommons.org/licenses/by/4.0/deed.it" target="_blank" rel="noopener">Licenza</a></p>
     </div>
@@ -518,5 +524,23 @@
 </button>
 
 <script src="js/main.js"></script>
+
+  <!-- ══ VISIT COUNTER ══════════════════════════════════════════ -->
+  <script>
+  (function initCounter() {
+    var counterEl = document.getElementById('counter-value');
+    if (!counterEl) return;
+    fetch('https://api.counterapi.dev/v1/valle-aniene-fai/visits/up')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if (data && typeof data.count === 'number') {
+          counterEl.textContent = data.count.toLocaleString('it-IT');
+        } else {
+          counterEl.textContent = '—';
+        }
+      })
+      .catch(function(){ counterEl.textContent = '—'; });
+  })();
+  </script>
 </body>
 </html>
