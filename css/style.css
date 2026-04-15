@@ -129,7 +129,8 @@ a { color:inherit; text-decoration:none; }
   display: flex;
   align-items: center;
   gap: var(--sp-3);
-  flex-shrink: 0;
+  flex: 1 1 auto;
+  min-width: 0;
   text-decoration: none;
 }
 .nav-logo-icon {
@@ -149,6 +150,9 @@ a { color:inherit; text-decoration:none; }
   font-weight: 500;
   color: var(--text-primary);
   letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-links {
@@ -159,13 +163,24 @@ a { color:inherit; text-decoration:none; }
   list-style: none;
 }
 .nav-links a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
   padding: var(--sp-2) var(--sp-3);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--text-muted);
   border-radius: var(--r-sm);
   transition: color var(--transition), background var(--transition);
+}
+.nav-link-icon {
+  flex-shrink: 0;
+  opacity: 0.65;
+  transition: opacity var(--transition);
+}
+.nav-links a:hover .nav-link-icon,
+.nav-links a.active .nav-link-icon {
+  opacity: 1;
 }
 .nav-links a:hover, .nav-links a.active {
   color: var(--fai-orange);
