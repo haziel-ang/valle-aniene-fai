@@ -64,6 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── 3D tilt per callout cards ───────────────────────────
+  document.querySelectorAll('.callout').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 3}deg) translateY(-5px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
   // ── IN-PAGE TABS ────────────────────────────────────────
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panels  = document.querySelectorAll('.page-panel');
